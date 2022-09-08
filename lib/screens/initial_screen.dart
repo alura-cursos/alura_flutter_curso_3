@@ -16,6 +16,14 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {});
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
         title: const Text('Tarefas'),
       ),
       body: Padding(
@@ -65,8 +73,10 @@ class _InitialScreenState extends State<InitialScreen> {
                     }
                     return Center(
                         child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center, // não implementado em vídeo por descuido meu, desculpem.
-                      crossAxisAlignment: CrossAxisAlignment.center, // essa linha de layout deixa o conteudo totalmente centralizado.
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // não implementado em vídeo por descuido meu, desculpem.
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      // essa linha de layout deixa o conteudo totalmente centralizado.
                       children: const [
                         Icon(
                           Icons.error_outline,
@@ -81,8 +91,7 @@ class _InitialScreenState extends State<InitialScreen> {
                   }
                   return const Text('Erro ao carregar tarefas');
               }
-              return Text('Erro desconhecido');
-
+              return const Text('Erro desconhecido');
             }),
       ),
       floatingActionButton: FloatingActionButton(
@@ -94,7 +103,9 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          ).then((value) => setState((){print('Recarregando a tela inicial');}));
+          ).then((value) => setState(() {
+                print('Recarregando a tela inicial');
+              }));
         },
         child: const Icon(Icons.add),
       ),
