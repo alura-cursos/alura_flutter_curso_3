@@ -65,8 +65,8 @@ class _InitialScreenState extends State<InitialScreen> {
                     }
                     return Center(
                         child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center, // não implementado em vídeo por descuido meu, desculpem.
+                      crossAxisAlignment: CrossAxisAlignment.center, // essa linha de layout deixa o conteudo totalmente centralizado.
                       children: const [
                         Icon(
                           Icons.error_outline,
@@ -94,7 +94,7 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          );
+          ).then((value) => setState((){print('Recarregando a tela inicial');}));
         },
         child: const Icon(Icons.add),
       ),
