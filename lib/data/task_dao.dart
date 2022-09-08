@@ -17,7 +17,7 @@ class TaskDao {
     print('Iniciando o save: ');
     final Database bancoDeDados = await getDatabase();
     var itemExists = await find(tarefa.nome);
-    Map<String,dynamic> taskMap = toMap(tarefa);
+    Map<String, dynamic> taskMap = toMap(tarefa);
     if (itemExists.isEmpty) {
       print('a Tarefa não Existia.');
       return await bancoDeDados.insert(_tablename, taskMap);
@@ -31,6 +31,7 @@ class TaskDao {
       );
     }
   }
+
   Map<String, dynamic> toMap(Task tarefa) {
     print('Convertendo to Map: ');
     final Map<String, dynamic> mapaDeTarefas = Map();
@@ -40,9 +41,8 @@ class TaskDao {
     print('Mapa de Tarefas: $mapaDeTarefas');
     return mapaDeTarefas;
   }
-}
 
-Future<List<Task>> findAll() async {
+  Future<List<Task>> findAll() async {
     print('Acessando o findAll: ');
     final Database bancoDeDados = await getDatabase();
     final List<Map<String, dynamic>> result =
@@ -77,5 +77,13 @@ Future<List<Task>> findAll() async {
     return toList(result);
   }
 
-  delete(String nomeDaTarefa) async {}
+  delete(String nomeDaTarefa) async {
+    print('Deletando tarefa: $nomeDaTarefa');
+    final Database bancoDeDados = await getDatabase();
+    return await bancoDeDados.delete(
+      _tablename,
+      where: '$_name = ?',
+      whereArgs: [nomeDaTarefa],
+    );
+  }
 }
