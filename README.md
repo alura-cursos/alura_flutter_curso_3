@@ -16,7 +16,7 @@ Esse curso de Flutter vai te ensinar a:
 
 O projeto do curso consiste em adicionar Persistência Interna ao projeto Organizador de Tarefas, com o intuito de permitir que o aplicativo seja fechado e não perca suas informações valiosas!
 
-![](https://raw.githubusercontent.com/alura-cursos/alura_flutter_curso_2/master/flutter2_gif.gif)
+![](https://raw.githubusercontent.com/alura-cursos/alura_flutter_curso_3/main/flutter3V1_gif.gif)
 
 ## ✔️ Técnicas e tecnologias
 
